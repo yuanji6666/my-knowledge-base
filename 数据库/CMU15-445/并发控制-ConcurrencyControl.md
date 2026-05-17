@@ -17,6 +17,7 @@ Lecture16开始，课程来到了并发控制主题，本节课从motivation exa
 	解决方案：concurrency control protocol（pessimistic & optimistic）
 - 持久性：
 	All of the changes of committed transactions must be durable (i.e., persistent) after a crash or restart.
+
 # #17 TwoPhaseLocking
 
 Lecture17承接Lecture16,我们不可能提前知道所有schedule中的operations，所以引入transaction lock，保证动态调度准确性
@@ -40,3 +41,16 @@ Lecture17承接Lecture16,我们不可能提前知道所有schedule中的operatio
 
 # #18 Timestamp Ordering Concurrency Control
 
+承接上一节，本节时间戳顺序并发协议是实现乐观并发协议（OCC）的原理，除此之外本节补充了幻读这个异常和隔离等级控制
+1. 乐观并发协议 OCC
+	In OCC, the DBMS creates a private workspace for each transaction.
+	3phases: read-> validation-> commit
+	...
+2. 幻读
+	In our previous discussions, we have considered transactions that operate on **a static set of objects** within the database. However, when transactions perform **insertions, updates, and deletions**, we encounter a new set of complications.
+	解决：加索引锁 Index Locking（key-value/gap/key-range/hierarchical locks）
+3. 隔离等级
+	![[隔离等级.png]]
+	实现：
+	![[隔离等级实现原理.png]]
+	现实中因为性能和默认等级，很少用最高隔离等级
