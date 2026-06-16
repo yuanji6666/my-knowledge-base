@@ -3,18 +3,21 @@
 
 # #16 ConcurrencyTheory
 
-Lecture16开始，课程来到了并发控制主题，本节课从motivation example引入，提出问题：怎样控制并发事务，主要内容围绕正确标准：ACID四个方面讲解
+Lecture16开始，课程来到了并发控制主题
 
+本节课从motivation example引入，指出之所以要允许事务并发执行是因为需要更高性能（利用率/吞吐/速度），但同时这也额外带来了维持并发执行正确性问题
+
+正确性的标准：ACID
 - 原子性：
 	From user's point of view: txn always either executes all its actions or executes no actions at all
 	solution: logging ~~shadow paging~~
 - 一致性：
 	database consistency: 年龄不为负、主键唯一(数据库层面)
-	transaction consistency: 转账收支相等、总分不变(应用层实现)
+	transaction consistency: 转账收支相等、总分不变(应用层实现，是编程人员的责任)
 - 隔离性：
 	The DBMS provides transactions the illusion that they are running alone in the system.(like process in OS)
 	引入：execution schedule 并发事务操作执行的顺序规划
-	解决方案：concurrency control protocol（pessimistic & optimistic）
+	解决方案：concurrency control protocol（pessimistic & optimistic）接下来的**重点**
 - 持久性：
 	All of the changes of committed transactions must be durable (i.e., persistent) after a crash or restart.
 
