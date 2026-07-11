@@ -1,4 +1,7 @@
 > 开源项目 paperclip 是一个Agent Company的概念，wxp本地化改造为AI产线，本篇根据源码理解它的设计
+
+![[paperclip.excalidraw]]
+
 # Architecture
 
 1. paperclip -> control plane
