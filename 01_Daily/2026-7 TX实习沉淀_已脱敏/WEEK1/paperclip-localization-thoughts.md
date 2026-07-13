@@ -4,26 +4,16 @@
 - AI是执行中心
 # Adapter
 
-实现了自己的adapter[[2026-07-10]]
+实现了自己的Adapter,见[[2026-07-10]]
 
 # Capability Pack
 
-可复用的技术底座。
-一个 Capability Pack = 镜像（工具链） + token request（内部平台调用权限）;
-Agent 通过 link 引用,Pack 改镜像所有 Agent 跟随。
-
-新增engineer_profiles表
-
+- 可复用的技术底座。一个 Capability Pack = 镜像（工具链） + token request（内部平台调用权限）。 Agent 通过 link 引用,Pack 改镜像所有 Agent 跟随。
+- 项目作用时机：容器启动时，prepareAssets(),skills/business/knowledge `git clone` + 物化进 `/workspace`，加载 `WXP_USER_ENV_JSON` 里的 env。
 # Playbook
 
-markdown
-
-这个岗位的活怎么干、按什么流程走，不写具体是哪个业务、哪个仓、哪个平台参数
-
-一个 Playbook = 一个岗位角色的标准作业流程(SOP,业务无关),与 Capability Pack 平级。
-Agent 引用一份岗位手册,运行时整份合并进指令;改一次正文,所有引用它的 agent 下轮运行自动生效。
-
-与上层capacity pack同级的抽象
+- 这个岗位的活怎么干、按什么流程走，不写具体是哪个业务、哪个仓、哪个平台参数；一个 Playbook = 一个岗位角色的标准作业流程(SOP,业务无关),与 Capability Pack 平级。Agent 引用一份岗位手册,运行时整份合并进指令;改一次正文,所有引用它的 agent 下轮运行自动生效；与上层capacity pack同级的抽象
+- 项目作用时机：拼成了system prompt 的一部分，agent-cloud-api 发run时下发
 
 # Agent-Flow
 
