@@ -1,6 +1,8 @@
-# 我的个人知识库 📚
+# Daily review in Tencent
 
  [Daily review in Tencent](01_Daily/2026-7%20TX实习沉淀_已脱敏/WEEK1/2026-07-06.md)
+
+# 我的个人知识库 📚
 
 一个用来沉淀学习笔记的地方。
 ## 组织结构
